@@ -20,12 +20,12 @@ const Home = () => {
     >
       <JsonEditor />
       <FormPreview />
-      <ul>
+      <ul className="pb-4 flex justify-center">
         <li
-          className="flex justify-center items-center md:p-5 p-3 bg-gray-200 text-black rounded-full cursor-pointer hover:bg-yellow-500 hover:text-white"
+          className="md:mt-5 md:mr-3 w-[4rem] h-[4rem] flex justify-center items-center md:p-5 p-3 bg-gray-200 text-black rounded-full cursor-pointer hover:bg-yellow-500 hover:text-white"
           onClick={handleAppTheme}
         >
-          {mode === "white" ? <FaMoon size={20} /> : <GoSun size={20} />}
+          {mode === "white" ? <FaMoon size={30} /> : <GoSun size={30} />}
         </li>
       </ul>
     </div>

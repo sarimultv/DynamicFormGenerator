@@ -42,10 +42,10 @@ const JsonEditor = () => {
         </h1>
 
         <textarea
-          className="w-[100%] border border-gray-900 bg-gray-800 text-white shadow-lg p-2 rounded-lg"
+          className="w-[100%] border border-gray-900 bg-gray-800 text-white shadow-lg p-4 rounded-lg"
           value={jsonValue}
           onChange={handleJsonEditor}
-          rows={20}
+          rows={25}
         ></textarea>
 
         {isError && <p className="py-2 text-red-800">Invalid JSON Format..!</p>}

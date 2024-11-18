@@ -1,9 +1,16 @@
 import { useState } from "react";
 import FormInput from "./FormInput";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { isEmailValid } from "../utils/isEmailValid";
+import {
+  addEmailValidations,
+  emailIsNotValid,
+  emailIsValid,
+} from "../store/emailValidSlice";
 
 const FormPreview = () => {
   const jsonItems = useSelector((store) => store.appData.initialData);
+  const dispatch = useDispatch();
 
   const { formTitle, formDescription, fields } = jsonItems;
   const [formValue, setFormValue] = useState(
@@ -23,10 +30,24 @@ const FormPreview = () => {
 
   const handleSubmitForm = (evt) => {
     evt.preventDefault();
+    let msg;
+    fields.map((item) => {
+      if (item.id === "email") {
+        msg = isEmailValid(formValue.email, item.validation);
+        dispatch(addEmailValidations(item.validation));
+      }
+    });
 
-    alert("Form Submitted Successfully..!");
+    if (msg) {
+      dispatch(emailIsNotValid());
+      return;
+    } else {
+      dispatch(emailIsValid());
+    }
 
     console.log(JSON.stringify(formValue, null, 2));
+    alert("Form Submitted Successfully..!");
+
     setFormValue(
       fields.reduce(
         (acc, field) => ({

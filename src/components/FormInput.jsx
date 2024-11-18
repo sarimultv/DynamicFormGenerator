@@ -1,8 +1,12 @@
+import { useSelector } from "react-redux";
 import FormRadio from "./FormRadio";
 import SelectOption from "./SelectOption";
 
 const FormInput = ({ fields, formValue, handleFormValue }) => {
-  const { id, type, label, required, placeholder, options } = fields;
+  const { id, type, label, required, placeholder, options, validation } =
+    fields;
+
+  const isValid = useSelector((store) => store.emailValid.isValid);
 
   return (
     <>
@@ -33,6 +37,19 @@ const FormInput = ({ fields, formValue, handleFormValue }) => {
             handleFormValue={handleFormValue}
           />
         ))
+      ) : type === "email" ? (
+        <>
+          <input
+            value={formValue[id]}
+            onChange={handleFormValue}
+            className="border bg-transparent p-2 w-[100%] mb-4 rounded-md"
+            name={id}
+            type={type}
+            placeholder={placeholder}
+            required={required}
+          />
+          {isValid && <p className="pb-2">{validation.message}</p>}
+        </>
       ) : (
         <input
           value={formValue[id]}
