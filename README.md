@@ -42,60 +42,63 @@ Add the @tailwind directives for each of Tailwind’s layers to your ./src/index
 
 - Below is the basic JSON schema for the reference, config driven form UI can be generated using dynamic JSON schema.
 
-{
-formTitle: "Project Requirements Survey",
+  {
+  formTitle: "Project Requirements Survey",
 
-formDescription: "Please fill out this survey about your project needs",
+  formDescription: "Please fill out this survey about your project needs",
 
-fields: [
-{
-id: "name",
+  fields: [
+  {
+  id: "name",
 
-      type: "text",
+            type: "text",
 
-      label: "Full Name",
+            label: "Full Name",
 
-      required: true,
+            required: true,
 
-      placeholder: "Enter your full name",
-    },
+            placeholder: "Enter your full name",
 
-    {
-      id: "industry",
+        },
 
-      type: "radio",
+        {
+        id: "industry",
 
-      label: "Industry",
+            type: "radio",
 
-      required: true,
+            label: "Industry",
 
-      options: [
-        { value: "tech", label: "Technology" },
+            required: true,
 
-        { value: "healthcare", label: "Healthcare" },
+            options: [
+                { value: "tech", label: "Technology" },
 
-        { value: "finance", label: "Finance" },
+                { value: "healthcare", label: "Healthcare" },
 
-        { value: "retail", label: "Retail" },
+                { value: "finance", label: "Finance" },
 
-        { value: "other", label: "Other" },
-      ],
-    },
+                { value: "retail", label: "Retail" },
 
-    {
-      id: "comments",
+                { value: "other", label: "Other" },
+            ],
 
-      type: "textarea",
+        },
 
-      label: "Additional Comments",
+        {
+        id: "comments",
 
-      required: false,
+            type: "textarea",
 
-      placeholder: "Any other details you'd like to share...",
-    },
+            label: "Additional Comments",
 
-],
-}
+            required: false,
+
+            placeholder: "Any other details you'd like to share...",
+
+        },
+
+  ],
+  }
 
 # Local Development Guide
 
