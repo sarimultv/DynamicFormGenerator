@@ -3,7 +3,7 @@
 Project Requirements Survey is a dynamic form generator web app built using the below tech stack,
 
 - React JS
-- React router
+- React Router
 - JavaScript
 - React Redux Toolkit for global State Management
 - Tailwind CSS for consistent Design
@@ -12,10 +12,10 @@ Project Requirements Survey is a dynamic form generator web app built using the 
 
 # Setup
 
-For running form generator web app, you need to create scaffolding of React using vite.
+For running form generator web app, you need to create scaffolding of React using Vite.
 You need to install React Router DOM, React Redux Toolkit, React Redux, & Tailwind CSS.
 
-Install all the pakages using the below commands,
+Install all the packages using the below commands,
 
 - npm create vite@latest dynamic_form_generaor -- --template react
 - npm install react-redux
@@ -104,4 +104,5 @@ Add the @tailwind directives for each of Tailwind’s layers to your ./src/index
 
 To run the Dynamic Form Generator web app, execute the below command,
 
+- npm install
 - npm run dev
