@@ -21,11 +21,21 @@ const JsonEditor = () => {
     }
   };
 
+  const isEmpty = (obj) => {
+    return Object.keys(obj).length === 0 && obj.constructor === Object;
+  };
+
   const handleJsonSubmit = (e) => {
     e.preventDefault();
     try {
       const editedJson = JSON.parse(jsonValue);
       console.log(editedJson);
+
+      if (isEmpty(editedJson)) {
+        alert("JSON is empty..!");
+        return;
+      }
+
       dispatch(loadUpdatedJson(editedJson));
       alert("JSON Submitted Successfully..!");
     } catch (error) {
