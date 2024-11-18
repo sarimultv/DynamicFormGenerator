@@ -1,9 +1,11 @@
 import { useState } from "react";
-import { jsonData } from "../utils/data";
 import FormInput from "./FormInput";
+import { useSelector } from "react-redux";
 
 const FormPreview = () => {
-  const { formTitle, formDescription, fields } = jsonData;
+  const jsonItems = useSelector((store) => store.appData.initialData);
+
+  const { formTitle, formDescription, fields } = jsonItems;
   const [formValue, setFormValue] = useState(
     fields.reduce(
       (acc, field) => ({
@@ -22,9 +24,9 @@ const FormPreview = () => {
   const handleSubmitForm = (evt) => {
     evt.preventDefault();
 
-    console.log(
-      "Form Submitted Successfully..! " + JSON.stringify(formValue, null, 2)
-    );
+    alert("Form Submitted Successfully..!");
+
+    console.log(JSON.stringify(formValue, null, 2));
     setFormValue(
       fields.reduce(
         (acc, field) => ({
@@ -57,7 +59,7 @@ const FormPreview = () => {
         ))}
 
         <input
-          className="border border-gray-400 p-2 w-[100%] bg-gray-700 text-white rounded-md font-bold cursor-pointer hover:bg-gray-500 hover:text-white hover:font-bold"
+          className="border border-gray-400 p-2 w-[100%] bg-gray-700 text-white rounded-md font-bold cursor-pointer hover:bg-gray-800 hover:text-white hover:font-bold"
           type="submit"
           value={"Submit"}
         />
