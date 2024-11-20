@@ -106,3 +106,4 @@ To run the Dynamic Form Generator web app, execute the below command,
 
 - npm install
 - npm run dev
+- Create a .env file and add the firebase key with name VITE_REACT_FIREBASE_KEY and provide the API key of firebase.
